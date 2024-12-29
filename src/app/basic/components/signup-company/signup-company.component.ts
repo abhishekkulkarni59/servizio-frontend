@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup-company.component.scss']
 })
 export class SignupCompanyComponent {
+  
   validateForm!: FormGroup;
 
   constructor(private fb: FormBuilder,
@@ -41,7 +42,7 @@ export class SignupCompanyComponent {
       this.notification
         .error(
           'ERROR',
-          `${error.error}`,
+          `${error.error.message}`,
           { nzDuration: 5000 }
         )
     })

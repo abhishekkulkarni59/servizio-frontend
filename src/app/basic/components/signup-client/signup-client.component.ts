@@ -23,7 +23,7 @@ export class SignupClientComponent {
     this.validateForm = this.fb.group({
       email: [null, [Validators.email, Validators.required]],
       name: [null, [Validators.required]],
-      lastname: [null, [Validators.required]],
+      lastName: [null, [Validators.required]],
       password: [null, [Validators.required]],
       checkPassword: [null, [Validators.required]],
       phone: [null]
@@ -40,10 +40,11 @@ export class SignupClientComponent {
         );
       this.router.navigateByUrl('/login');
     }, error => {
+      console.log(error);
       this.notification
         .error(
           'ERROR',
-          `${error.error}`,
+          `${error.error.message}`,
           { nzDuration: 5000 }
         )
     })

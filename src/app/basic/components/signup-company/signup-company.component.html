@@ -3,7 +3,7 @@
     <div class="parent">
         <div class="child">
             <div nz-col>
-             <h1 style="margin-left: 55px;">Client Signup</h1>
+             <h1 style="margin-left: 30px;">Company Signup</h1>
             </div>
             <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
                 <nz-form-item>
@@ -13,7 +13,7 @@
                 </nz-form-item>
                 <nz-form-item>
                     <nz-form-control nzHasFeedback nzErrorTip="The input is not valid password!">
-                        <input nz-input type="password" placeholder="Password" formControlName="password" id="email"/>
+                        <input nz-input type="password" placeholder="Password" formControlName="password" id="password"/>
                     </nz-form-control>
                 </nz-form-item>
                 <nz-form-item>
@@ -23,12 +23,12 @@
                 </nz-form-item>
                 <nz-form-item>
                     <nz-form-control nzHasFeedback nzErrorTip="The input is not valid name!">
-                        <input nz-input  placeholder="Company Name" formControlName="name" id="checkPassword"/>
+                        <input nz-input  placeholder="Company Name" formControlName="name" id="name"/>
                     </nz-form-control>
                 </nz-form-item>
                 <nz-form-item>
                     <nz-form-control nzHasFeedback nzErrorTip="The input is not valid Phone number!">
-                        <input nz-input  placeholder="Phone Number" formControlName="phone" id="checkPassword"/>
+                        <input nz-input  placeholder="Phone Number" formControlName="phone" id="phone"/>
                     </nz-form-control>
                 </nz-form-item>
 
