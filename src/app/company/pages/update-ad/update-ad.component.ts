@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
@@ -9,7 +9,7 @@ import { CompanyService } from '../../services/company.service';
   templateUrl: './update-ad.component.html',
   styleUrls: ['./update-ad.component.scss']
 })
-export class UpdateAdComponent {
+export class UpdateAdComponent implements OnInit{
 
   adId: any;
 

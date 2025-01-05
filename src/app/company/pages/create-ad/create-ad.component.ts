@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
@@ -9,7 +9,7 @@ import { CompanyService } from '../../services/company.service';
   templateUrl: './create-ad.component.html',
   styleUrls: ['./create-ad.component.scss']
 })
-export class CreateAdComponent {
+export class CreateAdComponent implements OnInit{
 
   selectedFile!: File | null;
   imagePreview!: string | ArrayBuffer | null;

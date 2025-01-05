@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { ClientRoutingModule } from './client-routing.module';
 import { ClientComponent } from './client.component';
 import { ClientDashboardComponent } from './pages/client-dashboard/client-dashboard.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { DemoNgZorroAntdModule } from '../DemoNgZorroAntdModule';
 
 
 @NgModule({
@@ -13,7 +15,9 @@ import { ClientDashboardComponent } from './pages/client-dashboard/client-dashbo
   ],
   imports: [
     CommonModule,
-    ClientRoutingModule
+    ClientRoutingModule,
+    ReactiveFormsModule,
+    DemoNgZorroAntdModule
   ]
 })
 export class ClientModule { }

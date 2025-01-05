@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CompanyService } from '../../services/company.service';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
 
@@ -7,7 +7,7 @@ import { NzNotificationService } from 'ng-zorro-antd/notification';
   templateUrl: './all-ads.component.html',
   styleUrls: ['./all-ads.component.scss']
 })
-export class AllAdsComponent {
+export class AllAdsComponent implements OnInit{
 
   ads: any;
 
