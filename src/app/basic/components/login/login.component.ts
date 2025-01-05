@@ -30,12 +30,12 @@ export class LoginComponent {
     this.authService.login(this.validateForm.get(['username'])!.value, this.validateForm.get(['password'])!.value)
       .subscribe(res => {
         console.log(res);
-        // if (UserStorageService.isClientLoggedIn) {
-        //   this.router.navigateByUrl('client/dashboard')
-        // }
-        // else if (UserStorageService.isCompanyLoggedIn) {
-        //   this.router.navigateByUrl('company/dashboard')
-        // }
+        if (UserStorageService.isClientLoggedIn()) {
+          this.router.navigateByUrl('client/dashboard')
+        }
+        else if (UserStorageService.isCompanyLoggedIn()) {
+          this.router.navigateByUrl('company/dashboard')
+        }
       }, error => {
         this.notification
           .error(

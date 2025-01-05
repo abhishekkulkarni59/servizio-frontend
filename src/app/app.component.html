@@ -1,15 +1,46 @@
-<nz-header class="main-header" nz-row nzType="flex" style="background-color:#bb2929">
+<div *ngIf="!isClientLoggedIn && !isCompanyLoggedIn">
+  <nz-header class="main-header" nz-row nzType="flex" style="background-color:#bb2929">
 
-  <div>
-    <h2 style="color: white; padding-left: 10px;">Service Booking System</h2>
-  </div>
+    <div>
+      <h2 style="color: white; padding-left: 10px;">Servizio</h2>
+    </div>
 
-  <div class="nav-links">
-    <a nz-button nzType="link" routerLink="/home" routerLinkActive="active">Home</a>
-    <a nz-button nzType="link" routerLink="/register" routerLinkActive="active">Register</a>
-    <a nz-button nzType="link" routerLink="/login" routerLinkActive="active">Login</a>
-  </div>
-  
-</nz-header>
+    <div class="nav-links">
+      <a nz-button nzType="link" routerLink="/home" routerLinkActive="active">Home</a>
+      <a nz-button nzType="link" routerLink="/register" routerLinkActive="active">Register</a>
+      <a nz-button nzType="link" routerLink="/login" routerLinkActive="active">Login</a>
+    </div>
+
+  </nz-header>
+</div>
+
+<div *ngIf="isClientLoggedIn">
+  <nz-header class="main-header" nz-row nzType="flex" style="background-color: #bb2929">
+    <div>
+      <h2 style="color: white; padding-left: 10px;">Servizio</h2>
+    </div>
+
+    <div class="nav-links">
+      <a nz-button nzType="link" routerLink="/client/dashboard" routerLinkActive="active">Dashboard</a>
+      <a nz-button nzType="link" routerLink="/client/bookings" routerLinkActive="active">Bookings</a>
+      <a nz-button nzType="link" (click)="logout()" routerLinkActive="active">Logout</a>
+    </div>
+  </nz-header>
+</div>
+
+<div *ngIf="isCompanyLoggedIn">
+  <nz-header class="main-header" nz-row nzType="flex" style="background-color: #bb2929">
+    <div>
+      <h2 style="color: white; padding-left: 10px;">Servizio</h2>
+    </div>
+
+    <div class="nav-links">
+      <a nz-button nzType="link" routerLink="/company/dashboard" routerLinkActive="active">Dashboard</a>
+      <a nz-button nzType="link" routerLink="/company/ad" routerLinkActive="active">Post Ad</a>
+      <a nz-button nzType="link" routerLink="/company/ads" routerLinkActive="active">Ads</a>
+      <a nz-button nzType="link" (click)="logout()" routerLinkActive="active">Logout</a>
+    </div>
+  </nz-header>
+</div>
 
 <router-outlet></router-outlet>

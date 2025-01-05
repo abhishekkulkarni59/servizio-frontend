@@ -1,0 +1,67 @@
+<div style="background-color: #f8f8f8;"> 
+    <div class="parent">
+      <div class="child">
+        <div nz-row class="imgDiv">
+          <h2 style="margin-left: 230px">Update Ad</h2>
+        </div>
+  
+         <form nz-form [formGroup] = "validateForm" (ngSubmit)="updateAd()">
+          <div nz-row>
+            <div class="file-upload-container">
+                <label class="filp-upload-label">
+                    <span style="margin-left:100px">Select a File</span>
+                    <input type="file" nz-button nzType ="primary" accept="image/x-png,image/gif,image/jpeg" (change)="
+                    onFileSelected($event)"/>
+
+                </label>
+
+                <div *ngIf="imagePreview" class="image-preview">
+                  <div class="circle-image">
+                    <img [src]="imagePreview" alt="New Image" class="preview-image"/>
+                  </div>
+                </div>
+
+                <div *ngIf="existingImage" class="image-preview">
+                  <div class="circle-image">
+                    <img [src]="existingImage" alt="Existing Image" class="preview-image"/>
+                  </div>
+                </div>
+            </div> 
+          <div nz-col nzSpan="24" style="margin-top: 20px">
+            <nz-form-item>
+              <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="This Input Is Required">
+                <input nz-input placeholder="Service Name" formControlName="serviceName" />
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+  
+            <div nz-col nzSpan="24">
+              <nz-form-item>
+                <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="This Input Is Required">
+                  <input nz-input placeholder="Price" formControlName="price" type="number" />
+                </nz-form-control>
+              </nz-form-item>
+            </div>
+  
+            <div nz-col nzSpan="24">
+              <nz-form-item>
+                <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="This Input Is Required">
+                  <textarea rows="1" nz-input placeholder="Description" formControlName="description"></textarea>
+                </nz-form-control>
+              </nz-form-item>
+            </div>
+  
+          </div>
+  
+          <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">
+            Update Ad
+          </button>
+  
+        </form>
+  
+      </div>
+  
+    </div>
+  
+  </div>
+  
