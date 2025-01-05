@@ -1,0 +1,23 @@
+.heading {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+    padding: 10px;
+    text-align: left;
+}
+
+.nz-table-tbody td {
+    padding: 12px 8px;
+}
+
+.nz-table-thead th {
+    background-color: #f5f5f5;
+    color: #333;
+    padding: 12px 8px;
+    text-align: left;
+}
+
+button[nz-button] {
+    padding: 4px 12px;
+    font-size: 14px;
+}

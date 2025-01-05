@@ -1,0 +1,66 @@
+<div class="bg" style="background-color: #f8f8f8" *ngIf="ad">
+  <div class="ad-details-container">
+    <div class="top-section">
+      <div class="ad-detail">
+        <div nz-col nzSpan="8">
+          <img class="profile" style="height: 130px; width: 200px; border-radius: 10px" [src]="avatarUrl"
+            alt="profile" />
+        </div>
+        <div nz-col nzSpan="16">
+          <h2 style="cursor: pointer; color: #108ee9">
+            {{ ad.serviceName }}
+          </h2>
+          <h5>
+            Price : <b>{{ ad.price }}</b>
+          </h5>
+          <h5>
+            Description : <b>{{ ad.description }}</b> - Company Name :
+            <b>{{ ad.companyName }}</b>
+          </h5>
+        </div>
+      </div>
+      <div class="book-service">
+        <div>
+          <div nz-row>
+            <h2> Book Service </h2>
+          </div>
+          <form nz-form [formGroup]="validateForm">
+            <div nz-row>
+              <div nz-col nzSpan="24">
+                <nz-form-item>
+                  <nz-form-label [nzSpan]="24" nzFor="bookDate"> Date of Booking</nz-form-label>
+                  <nz-form-control [nzSpan]="24">
+                    <nz-date-picker formControlName="bookDate" name="bookDate" id="bookDate">
+                    </nz-date-picker>
+                  </nz-form-control>
+                </nz-form-item>
+              </div>
+            </div>
+            <button nz-button [nzType]="'primary'" [disabled]="validateForm.invalid" (click)="bookService()">
+              Book
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="reviews-section">
+      <div class="review-card" *ngFor="let review of reviews">
+        <nz-card [nzBordered]="false" nzTitle="{{review.clientName}}">
+          <p>
+            Review: <strong>{{review.review}}</strong>
+          </p>
+          <p>
+            Review:
+            <strong>
+              <nz-rate disabled [ngModel]="review.rating"></nz-rate>
+            </strong>
+          </p>
+          <p>
+            Posted on:
+            <strong>{{review.reviewDate | date:"dd/MM/yyyy"}}</strong>
+          </p>
+        </nz-card>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,27 @@
-<p>company-dashboard works!</p>
+<nz-table #basicTable [nzData]="bookings" [nzPageSize]="20" [nzShowPagination]="false" style="padding: 20px;">
+    <thead>
+        <tr>
+            <th class="heading">Client Name</th>
+            <th class="heading">Service</th>
+            <th class="heading">Date</th>
+            <th class="heading">Status</th>
+            <th class="heading">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let booking of basicTable.data">
+            <td style="font-weight: 600">{{ booking.userName }}</td>
+            <td style="font-weight: 600">{{ booking.serviceName }}</td>
+            <td>{{ booking.bookDate | date: 'dd/MM/yyyy' }}</td>
+            <td style="font-weight: 600">{{ booking.reservationStatus }}</td>
+            <td>
+                <span *ngIf="booking.reservationStatus === 'PENDING'">
+                    <button style="margin-left: 10px" nzSize="small" nz-button nzType="primary"
+                    (click)="changeBookingStatus(booking.id,'Approve')">Approve</button>
+                    <button style="margin-left: 10px" nzSize="small" nz-button nzType="primary" nzDanger
+                    (click)="changeBookingStatus(booking.id,'Reject')">Reject</button>
+                </span>
+            </td>
+        </tr>
+    </tbody>
+</nz-table>

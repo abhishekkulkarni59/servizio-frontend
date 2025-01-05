@@ -1,0 +1,27 @@
+<nz-table style="padding: 30px;" [nzData]="bookedServices" #basicTable [nzPageSize]="20" [nzShowPagination]="'false'">
+
+    <thead>
+        <tr>
+            <th style="font-weight: bolder; color: #003973;">Service</th>
+            <th style="font-weight: bolder; color: #003973;">Date</th>
+            <th style="font-weight: bolder; color: #003973;">Status</th>
+            <th style="font-weight: bolder; color: #003973;">Action</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let booking of basicTable.data">
+            <td style="font-weight:600;">{{booking.serviceName}}</td>
+            <td>{{booking.bookDate | date: 'dd/MM/yyyy'}}</td>
+            <td style="font-weight:600 ;">{{booking.reservationStatus}}</td>
+            <span *ngIf="booking.reviewStatus == 'FALSE'">
+                    <td>
+                        <button style="margin-left: 10px; margin-top: 15px;" nzSize="small" nz-button nzType="primary" nzDanger
+                        [routerLink]="'/client/review/' + booking.id">Review</button>
+                    </td>
+
+            </span>
+        </tr>
+    </tbody>
+    
+</nz-table>

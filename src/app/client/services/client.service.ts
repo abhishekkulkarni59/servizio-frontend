@@ -33,14 +33,40 @@ export class ClientService {
 
   searchAdByName(name: string, page: number = 0, size: number = 10): Observable<PaginatedResponse<any>> {
     const params = new HttpParams()
-       .set('page', page.toString())
-       .set('size', size.toString());
+      .set('page', page.toString())
+      .set('size', size.toString());
 
     return this.http.get<PaginatedResponse<any>>(BASIC_URL + `client/ads/search/${name}`, {
-       headers: this.createAuthorizationHeader(),
-       params: params
+      headers: this.createAuthorizationHeader(),
+      params: params
     });
+  }
+
+  getAdDetailsByAdId(adId: any): Observable<any> {
+    return this.http.get(BASIC_URL + `client/ad/${adId}`,
+      {
+        headers: this.createAuthorizationHeader()
+      })
+  }
+
+  bookService(bookDTO: any): Observable<any> {
+    return this.http.post(BASIC_URL + `client/book-service`, bookDTO, {
+      headers: this.createAuthorizationHeader()
+    })
+  }
+
+  getMyBookings(): Observable<any> {
+    const userId = UserStorageService.getUserId();
+    return this.http.get(BASIC_URL + `client/my-bookings/${userId}`, {
+       headers: this.createAuthorizationHeader()
+    })
  }
+
+ giveReview(reviewDTO: any): Observable<any> {
+  return this.http.post(BASIC_URL + `client/review`, reviewDTO, {
+     headers: this.createAuthorizationHeader()
+  })
+}
 
   createAuthorizationHeader(): HttpHeaders {
     let authHeaders: HttpHeaders = new HttpHeaders();
